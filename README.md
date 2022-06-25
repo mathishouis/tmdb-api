@@ -30,7 +30,7 @@ The following code return the movie with id 76341.
 use Kozennnn\TmdbAPI\TmdbClient;
 
 $client = new TmdbClient("<YOUR_API_KEY>");
-$movie = $client->Movies()->getImages(76341);
+$movie = $client->Movies()->getMovie(76341);
 
 ```
 
@@ -46,7 +46,7 @@ You can even provide parameters.
 use Kozennnn\TmdbAPI\TmdbClient;
 
 $client = new TmdbClient("<YOUR_API_KEY>");
-$movie = $client->Movies()->getImages(76341, ['language' => 'fr']);
+$movie = $client->Movies()->getMovie(76341, ['language' => 'fr']);
 
 ```
 #
