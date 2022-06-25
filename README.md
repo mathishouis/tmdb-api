@@ -17,7 +17,7 @@ A PHP package to make The Movie Database API easier to use.
 ## Installation
 
 ```
-composer require kozennnn/tmdb-api (not available for the moment)
+composer require kozennnn/tmdb-api
 ```
 
 ## Usage
