@@ -2,6 +2,7 @@
 
 namespace Kozennnn\TmdbAPI;
 
+use Kozennnn\TmdbAPI\Api\Keywords;
 use Kozennnn\TmdbAPI\Api\Lists;
 use Kozennnn\TmdbAPI\Api\Movies;
 use Kozennnn\TmdbAPI\Api\Networks;
@@ -96,5 +97,8 @@ class TmdbClient {
         return new Lists($this);
     }
 
+    public function Keywords(): Keywords {
+        return new Keywords($this);
+    }
 
 }
