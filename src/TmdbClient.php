@@ -4,6 +4,7 @@ namespace Kozennnn\TmdbAPI;
 
 use Kozennnn\TmdbAPI\Api\Movies;
 use Kozennnn\TmdbAPI\Api\Networks;
+use Kozennnn\TmdbAPI\Api\People;
 use Kozennnn\TmdbAPI\Api\Trending;
 
 class TmdbClient {
@@ -49,6 +50,10 @@ class TmdbClient {
 
     public function Trending(): Trending {
         return new Trending($this);
+    }
+
+    public function People(): People {
+        return new People($this);
     }
 
 }
