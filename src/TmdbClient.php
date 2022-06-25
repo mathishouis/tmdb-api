@@ -9,6 +9,7 @@ use Kozennnn\TmdbAPI\Api\Reviews;
 use Kozennnn\TmdbAPI\Api\Search;
 use Kozennnn\TmdbAPI\Api\Trending;
 use Kozennnn\TmdbAPI\Api\TV;
+use Kozennnn\TmdbAPI\Api\TVSeasons;
 
 class TmdbClient {
 
@@ -69,6 +70,10 @@ class TmdbClient {
 
     public function TV(): TV {
         return new TV($this);
+    }
+
+    public function TVSeasons(): TVSeasons {
+        return new TVSeasons($this);
     }
 
 }

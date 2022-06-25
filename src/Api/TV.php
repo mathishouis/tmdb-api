@@ -13,7 +13,7 @@ class TV extends Api
      * @return array
      */
 
-    public function getTvShow(int $tvId, array $parameters = []): array
+    public function getTVShow(int $tvId, array $parameters = []): array
     {
         return $this->get('tv/' . $tvId, $parameters);
     }
@@ -30,9 +30,9 @@ class TV extends Api
      * @return array
      */
 
-    public function getAccountStates(int $tvId, string $sessionId, array $parameters = []): array
+    public function getAccountStates(int $tvId, array $parameters = []): array
     {
-        return $this->get('tv/' . $tvId . '/account_states', array_merge($parameters, ['session_id' => $sessionId]));
+        return $this->get('tv/' . $tvId . '/account_states', $parameters);
     }
 
     /**
