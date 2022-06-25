@@ -30,13 +30,33 @@ abstract class Api
      */
 
     public function get(string $path, array $parameters = []): array {
-        echo TmdbClient::API_URL . $path . "?api_key=" . $this->client->getApiKey() . "&" . http_build_query($parameters);
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, TmdbClient::API_URL . $path . "?api_key=" . $this->client->getApiKey() . "&" . http_build_query($parameters));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
         $data = curl_exec($ch);
-        echo $data;
+        curl_close($ch);
+        return json_decode($data, true);
+    }
+
+    public function post(string $path, array $content = null, array $parameters = []): array {
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, TmdbClient::API_URL . $path . "?api_key=" . $this->client->getApiKey() . "&" . http_build_query($parameters));
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $content);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $data = curl_exec($ch);
+        curl_close($ch);
+        return json_decode($data, true);
+    }
+
+    public function delete(string $path, array $content = null, array $parameters = []): array {
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, TmdbClient::API_URL . $path . "?api_key=" . $this->client->getApiKey() . "&" . http_build_query($parameters));
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $content);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $data = curl_exec($ch);
         curl_close($ch);
         return json_decode($data, true);
     }
