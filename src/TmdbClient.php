@@ -2,6 +2,7 @@
 
 namespace Kozennnn\TmdbAPI;
 
+use Kozennnn\TmdbAPI\Api\Lists;
 use Kozennnn\TmdbAPI\Api\Movies;
 use Kozennnn\TmdbAPI\Api\Networks;
 use Kozennnn\TmdbAPI\Api\People;
@@ -90,5 +91,10 @@ class TmdbClient {
     public function WatchProviders(): WatchProviders {
         return new WatchProviders($this);
     }
+
+    public function Lists(): Lists {
+        return new Lists($this);
+    }
+
 
 }
