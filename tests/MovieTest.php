@@ -9,4 +9,4 @@ $client = new TmdbClient("306cc0d5addcd5f6f1925d9f88819809");
 //print_r($client->Movies()->rateMovie(76341, 98));
 //print_r($client->Movies()->deleteRating(76341));
 //print_r($client->People()->getPopular());
-
+print_r($client->Search()->searchCompanies("a"));

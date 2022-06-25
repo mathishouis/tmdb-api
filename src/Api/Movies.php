@@ -32,7 +32,7 @@ class Movies extends Api
 
     public function getAccountStates(int $movieId, string $sessionId, array $parameters = []): array
     {
-        return $this->get('movie/' . $movieId . '/account_states?session_id=' . $sessionId . "&", $parameters);
+        return $this->get('movie/' . $movieId . '/account_states', array_merge($parameters, ['session_id' => $sessionId]));
     }
 
     /**

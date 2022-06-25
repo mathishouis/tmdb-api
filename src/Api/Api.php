@@ -31,6 +31,7 @@ abstract class Api
 
     public function get(string $path, array $parameters = []): array {
         $ch = curl_init();
+        echo TmdbClient::API_URL . $path . "?api_key=" . $this->client->getApiKey() . "&" . http_build_query($parameters);
         curl_setopt($ch, CURLOPT_URL, TmdbClient::API_URL . $path . "?api_key=" . $this->client->getApiKey() . "&" . http_build_query($parameters));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);

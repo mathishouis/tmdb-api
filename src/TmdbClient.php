@@ -6,6 +6,7 @@ use Kozennnn\TmdbAPI\Api\Movies;
 use Kozennnn\TmdbAPI\Api\Networks;
 use Kozennnn\TmdbAPI\Api\People;
 use Kozennnn\TmdbAPI\Api\Reviews;
+use Kozennnn\TmdbAPI\Api\Search;
 use Kozennnn\TmdbAPI\Api\Trending;
 
 class TmdbClient {
@@ -59,6 +60,10 @@ class TmdbClient {
 
     public function Reviews(): Reviews {
         return new Reviews($this);
+    }
+
+    public function Search(): Search {
+        return new Search($this);
     }
 
 }
