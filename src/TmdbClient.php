@@ -3,6 +3,7 @@
 namespace Kozennnn\TmdbAPI;
 
 use Kozennnn\TmdbAPI\Api\Movies;
+use Kozennnn\TmdbAPI\Api\Networks;
 
 class TmdbClient {
 
@@ -37,8 +38,12 @@ class TmdbClient {
         return $this->apiKey;
     }
 
-    public function Movies() {
+    public function Movies(): Movies {
         return new Movies($this);
+    }
+
+    public function Networks(): Networks {
+        return new Networks($this);
     }
 
 }
