@@ -2,6 +2,7 @@
 
 namespace Kozennnn\TmdbAPI;
 
+use Kozennnn\TmdbAPI\Api\Genres;
 use Kozennnn\TmdbAPI\Api\Keywords;
 use Kozennnn\TmdbAPI\Api\Lists;
 use Kozennnn\TmdbAPI\Api\Movies;
@@ -99,6 +100,10 @@ class TmdbClient {
 
     public function Keywords(): Keywords {
         return new Keywords($this);
+    }
+
+    public function Genres(): Genres {
+        return new Genres($this);
     }
 
 }
