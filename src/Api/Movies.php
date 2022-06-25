@@ -260,9 +260,9 @@ class Movies extends Api
      * @return array
      */
 
-    public function getNowPlaying(int $movieId, array $parameters = []): array
+    public function getNowPlaying(array $parameters = []): array
     {
-        return $this->get('movie/' . $movieId . '/now_playing', $parameters);
+        return $this->get('movie/now_playing', $parameters);
     }
 
     /**
@@ -273,9 +273,9 @@ class Movies extends Api
      * @return array
      */
 
-    public function getPopular(int $movieId, array $parameters = []): array
+    public function getPopular(array $parameters = []): array
     {
-        return $this->get('movie/' . $movieId . '/popular', $parameters);
+        return $this->get('movie/popular', $parameters);
     }
 
     /**
@@ -286,9 +286,9 @@ class Movies extends Api
      * @return array
      */
 
-    public function getTopRated(int $movieId, array $parameters = []): array
+    public function getTopRated(array $parameters = []): array
     {
-        return $this->get('movie/' . $movieId . '/top_rated', $parameters);
+        return $this->get('movie/top_rated', $parameters);
     }
 
     /**
@@ -299,9 +299,9 @@ class Movies extends Api
      * @return array
      */
 
-    public function getUpcoming(int $movieId, array $parameters = []): array
+    public function getUpcoming(array $parameters = []): array
     {
-        return $this->get('movie/' . $movieId . '/upcoming', $parameters);
+        return $this->get('movie/upcoming', $parameters);
     }
 
 }

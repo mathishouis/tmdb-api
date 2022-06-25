@@ -8,6 +8,7 @@ use Kozennnn\TmdbAPI\Api\People;
 use Kozennnn\TmdbAPI\Api\Reviews;
 use Kozennnn\TmdbAPI\Api\Search;
 use Kozennnn\TmdbAPI\Api\Trending;
+use Kozennnn\TmdbAPI\Api\TV;
 
 class TmdbClient {
 
@@ -64,6 +65,10 @@ class TmdbClient {
 
     public function Search(): Search {
         return new Search($this);
+    }
+
+    public function TV(): TV {
+        return new TV($this);
     }
 
 }
