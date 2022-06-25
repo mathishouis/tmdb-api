@@ -12,6 +12,7 @@ use Kozennnn\TmdbAPI\Api\TV;
 use Kozennnn\TmdbAPI\Api\TVEpisodeGroups;
 use Kozennnn\TmdbAPI\Api\TVEpisodes;
 use Kozennnn\TmdbAPI\Api\TVSeasons;
+use Kozennnn\TmdbAPI\Api\WatchProviders;
 
 class TmdbClient {
 
@@ -84,6 +85,10 @@ class TmdbClient {
 
     public function TVEpisodeGroup(): TVEpisodeGroups {
         return new TVEpisodeGroups($this);
+    }
+
+    public function WatchProviders(): WatchProviders {
+        return new WatchProviders($this);
     }
 
 }

@@ -19,8 +19,8 @@ class TVEpisodeGroups extends Api
      * @return array
      */
 
-    public function getEpisodeGroup(int $episodeGroupId): array
+    public function getEpisodeGroup(int $episodeGroupId, array $parameters = []): array
     {
-        return $this->get('tv/episode_group/' . $episodeGroupId);
+        return $this->get('tv/episode_group/' . $episodeGroupId, $parameters);
     }
 }
