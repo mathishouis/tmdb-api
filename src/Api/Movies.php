@@ -218,12 +218,13 @@ class Movies extends Api
      *
      * @param int $movieId
      * @param float $rating
+     * @param array $parameters
      * @return array
      */
 
-    public function rateMovie(int $movieId, float $rating): array
+    public function rateMovie(int $movieId, float $rating, array $parameters): array
     {
-        return $this->post('movie/' . $movieId . '/rating', ['value' => $rating]);
+        return $this->post('movie/' . $movieId . '/rating', ['value' => $rating], $parameters);
     }
 
     /**

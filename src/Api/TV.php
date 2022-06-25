@@ -245,12 +245,13 @@ class TV extends Api
      *
      * @param int $tvId
      * @param float $rating
+     * @param array $parameters
      * @return array
      */
 
-    public function rateTVShow(int $tvId, float $rating): array
+    public function rateTVShow(int $tvId, float $rating, array $parameters): array
     {
-        return $this->post('tv/' . $tvId . '/rating', ['value' => $rating]);
+        return $this->post('tv/' . $tvId . '/rating', ['value' => $rating], $parameters);
     }
 
     /**
