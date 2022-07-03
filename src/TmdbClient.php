@@ -2,6 +2,7 @@
 
 namespace Kozennnn\TmdbAPI;
 
+use Kozennnn\TmdbAPI\Api\Discover;
 use Kozennnn\TmdbAPI\Api\Genres;
 use Kozennnn\TmdbAPI\Api\Keywords;
 use Kozennnn\TmdbAPI\Api\Lists;
@@ -104,6 +105,10 @@ class TmdbClient {
 
     public function Genres(): Genres {
         return new Genres($this);
+    }
+
+    public function Discover(): Discover {
+        return new Discover($this);
     }
 
 }
