@@ -17,11 +17,14 @@ use Kozennnn\TmdbAPI\Api\TVEpisodeGroups;
 use Kozennnn\TmdbAPI\Api\TVEpisodes;
 use Kozennnn\TmdbAPI\Api\TVSeasons;
 use Kozennnn\TmdbAPI\Api\WatchProviders;
+use phpDocumentor\Reflection\Types\Boolean;
 
 class TmdbClient {
 
     public const API_VERSION = '3';
-    public const API_URL = 'http://api.themoviedb.org/' . self::API_VERSION . '/';
+    public const API_URL = '//api.themoviedb.org/' . self::API_VERSION . '/';
+    public const SCHEME_INSECURE = 'http';
+    public const SCHEME_SECURE = 'https';
 
     /**
      * Store the API Key
@@ -36,9 +39,11 @@ class TmdbClient {
      * @param string $apiKey
      */
 
-    public function __construct(string $apiKey)
+    public function __construct(string $apiKey, boolean $secure)
     {
+
         $this->apiKey = $apiKey;
+        $this->secure = $secure;
     }
 
     /**
@@ -49,6 +54,11 @@ class TmdbClient {
     public function getApiKey(): string
     {
         return $this->apiKey;
+    }
+
+    public function isSecure(): Boolean
+    {
+        return $this->secure;
     }
 
     public function Movies(): Movies {
