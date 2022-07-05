@@ -35,6 +35,11 @@ abstract class Api
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
         $data = curl_exec($ch);
+
+        /*if (curl_errno($ch)) {
+            print curl_error($ch);
+        }*/
+        print_r($data);
         curl_close($ch);
         return json_decode($data, true);
     }

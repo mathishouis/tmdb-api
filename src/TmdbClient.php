@@ -21,7 +21,7 @@ use Kozennnn\TmdbAPI\Api\WatchProviders;
 class TmdbClient {
 
     public const API_VERSION = '3';
-    public const API_URL = '//api.themoviedb.org/' . self::API_VERSION . '/';
+    public const API_URL = '://api.themoviedb.org/' . self::API_VERSION . '/';
     public const SCHEME_INSECURE = 'http';
     public const SCHEME_SECURE = 'https';
 
