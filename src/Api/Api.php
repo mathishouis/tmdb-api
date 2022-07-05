@@ -39,7 +39,6 @@ abstract class Api
         /*if (curl_errno($ch)) {
             print curl_error($ch);
         }*/
-        print_r($data);
         curl_close($ch);
         return json_decode($data, true);
     }
