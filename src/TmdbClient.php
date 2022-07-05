@@ -17,7 +17,6 @@ use Kozennnn\TmdbAPI\Api\TVEpisodeGroups;
 use Kozennnn\TmdbAPI\Api\TVEpisodes;
 use Kozennnn\TmdbAPI\Api\TVSeasons;
 use Kozennnn\TmdbAPI\Api\WatchProviders;
-use phpDocumentor\Reflection\Types\Boolean;
 
 class TmdbClient {
 
@@ -37,9 +36,10 @@ class TmdbClient {
     /**
      * TMDBClient constructor.
      * @param string $apiKey
+     * @param bool $secure
      */
 
-    public function __construct(string $apiKey, boolean $secure)
+    public function __construct(string $apiKey, bool $secure)
     {
 
         $this->apiKey = $apiKey;
