@@ -56,7 +56,7 @@ class TmdbClient {
         return $this->apiKey;
     }
 
-    public function isSecure(): Boolean
+    public function isSecure(): bool
     {
         return $this->secure;
     }
