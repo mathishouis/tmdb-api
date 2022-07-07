@@ -1,6 +1,8 @@
 <?php
 
-namespace Kozennnn\TmdbAPI\Api;
+namespace Kozennnn\TmdbAPI\Api\v3;
+
+use Kozennnn\TmdbAPI\Api\Api;
 
 class TVEpisodes extends Api
 {
@@ -17,7 +19,7 @@ class TVEpisodes extends Api
 
     public function getTVEpisode(int $tvId, int $seasonNumber, int $episodeNumber, array $parameters = []): array
     {
-        return $this->get('tv/' . $tvId . '/season/' . $seasonNumber . '/episode/' . $episodeNumber, $parameters);
+        return $this->get(3, 'tv/' . $tvId . '/season/' . $seasonNumber . '/episode/' . $episodeNumber, $parameters);
     }
 
     /**
@@ -32,7 +34,7 @@ class TVEpisodes extends Api
 
     public function getAccountStates(int $tvId, int $seasonNumber, int $episodeNumber, array $parameters = []): array
     {
-        return $this->get('tv/' . $tvId . '/season/' . $seasonNumber . '/episode/' . $episodeNumber . '/account_states', $parameters);
+        return $this->get(3, 'tv/' . $tvId . '/season/' . $seasonNumber . '/episode/' . $episodeNumber . '/account_states', $parameters);
     }
 
     /**
@@ -45,7 +47,7 @@ class TVEpisodes extends Api
 
     public function getChanges(int $episodeId, array $parameters = []): array
     {
-        return $this->get('tv/episode/' . $episodeId . '/changes', $parameters);
+        return $this->get(3, 'tv/episode/' . $episodeId . '/changes', $parameters);
     }
 
     /**
@@ -60,7 +62,7 @@ class TVEpisodes extends Api
 
     public function getCredits(int $tvId, int $seasonNumber, int $episodeNumber, array $parameters = []): array
     {
-        return $this->get('tv/' . $tvId . '/season/' . $seasonNumber . '/episode/' . $episodeNumber . '/credits', $parameters);
+        return $this->get(3, 'tv/' . $tvId . '/season/' . $seasonNumber . '/episode/' . $episodeNumber . '/credits', $parameters);
     }
 
     /**
@@ -74,7 +76,7 @@ class TVEpisodes extends Api
 
     public function getExternalIds(int $tvId, int $seasonNumber, int $episodeNumber): array
     {
-        return $this->get('tv/' . $tvId . '/season/' . $seasonNumber . '/episode/' . $episodeNumber . '/external_ids');
+        return $this->get(3, 'tv/' . $tvId . '/season/' . $seasonNumber . '/episode/' . $episodeNumber . '/external_ids');
     }
 
     /**
@@ -88,7 +90,7 @@ class TVEpisodes extends Api
 
     public function getImages(int $tvId, int $seasonNumber, int $episodeNumber): array
     {
-        return $this->get('tv/' . $tvId . '/season/' . $seasonNumber . '/episode/' . $episodeNumber . '/images');
+        return $this->get(3, 'tv/' . $tvId . '/season/' . $seasonNumber . '/episode/' . $episodeNumber . '/images');
     }
 
     /**
@@ -102,7 +104,7 @@ class TVEpisodes extends Api
 
     public function getTranslations(int $tvId, int $seasonNumber, int $episodeNumber): array
     {
-        return $this->get('tv/' . $tvId . '/season/' . $seasonNumber . '/episode/' . $episodeNumber . '/translations');
+        return $this->get(3, 'tv/' . $tvId . '/season/' . $seasonNumber . '/episode/' . $episodeNumber . '/translations');
     }
 
     /**
@@ -118,7 +120,7 @@ class TVEpisodes extends Api
 
     public function rateTVEpisode(int $tvId, int $seasonNumber, int $episodeNumber, float $rating, array $parameters = []): array
     {
-        return $this->post('tv/' . $tvId . '/season/' . $seasonNumber . '/episode/' . $episodeNumber . '/rating', ['value' => $rating], $parameters);
+        return $this->post(3, 'tv/' . $tvId . '/season/' . $seasonNumber . '/episode/' . $episodeNumber . '/rating', ['value' => $rating], $parameters);
     }
 
     /**
@@ -134,7 +136,7 @@ class TVEpisodes extends Api
 
     public function deleteRating(int $tvId, int $seasonNumber, int $episodeNumber, float $rating, array $parameters = []): array
     {
-        return $this->delete('tv/' . $tvId . '/season/' . $seasonNumber . '/episode/' . $episodeNumber . '/rating', null, $parameters);
+        return $this->delete(3, 'tv/' . $tvId . '/season/' . $seasonNumber . '/episode/' . $episodeNumber . '/rating', null, $parameters);
     }
 
     /**
@@ -148,7 +150,7 @@ class TVEpisodes extends Api
 
     public function getVideos(int $tvId, int $seasonNumber, int $episodeNumber): array
     {
-        return $this->get('tv/' . $tvId . '/season/' . $seasonNumber . '/episode/' . $episodeNumber . '/videos');
+        return $this->get(3, 'tv/' . $tvId . '/season/' . $seasonNumber . '/episode/' . $episodeNumber . '/videos');
     }
 
 }

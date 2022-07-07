@@ -1,6 +1,8 @@
 <?php
 
-namespace Kozennnn\TmdbAPI\Api;
+namespace Kozennnn\TmdbAPI\Api\v3;
+
+use Kozennnn\TmdbAPI\Api\Api;
 
 class TV extends Api
 {
@@ -15,7 +17,7 @@ class TV extends Api
 
     public function getTVShow(int $tvId, array $parameters = []): array
     {
-        return $this->get('tv/' . $tvId, $parameters);
+        return $this->get(3, 'tv/' . $tvId, $parameters);
     }
 
     /**
@@ -32,7 +34,7 @@ class TV extends Api
 
     public function getAccountStates(int $tvId, array $parameters = []): array
     {
-        return $this->get('tv/' . $tvId . '/account_states', $parameters);
+        return $this->get(3, 'tv/' . $tvId . '/account_states', $parameters);
     }
 
     /**
@@ -45,7 +47,7 @@ class TV extends Api
 
     public function getAggregateCredits(int $tvId, array $parameters = []): array
     {
-        return $this->get('tv/' . $tvId . '/aggregate_credits', $parameters);
+        return $this->get(3, 'tv/' . $tvId . '/aggregate_credits', $parameters);
     }
 
     /**
@@ -58,7 +60,7 @@ class TV extends Api
 
     public function getAlternativeTitles(int $tvId, array $parameters = []): array
     {
-        return $this->get('tv/' . $tvId . '/alternative_titles', $parameters);
+        return $this->get(3, 'tv/' . $tvId . '/alternative_titles', $parameters);
     }
 
     /**
@@ -71,7 +73,7 @@ class TV extends Api
 
     public function getChanges(int $tvId, array $parameters = []): array
     {
-        return $this->get('tv/' . $tvId . '/changes', $parameters);
+        return $this->get(3, 'tv/' . $tvId . '/changes', $parameters);
     }
 
     /**
@@ -84,7 +86,7 @@ class TV extends Api
 
     public function getContentRatings(int $tvId, array $parameters = []): array
     {
-        return $this->get('tv/' . $tvId . '/ratings', $parameters);
+        return $this->get(3, 'tv/' . $tvId . '/ratings', $parameters);
     }
 
     /**
@@ -97,7 +99,7 @@ class TV extends Api
 
     public function getCredits(int $tvId, array $parameters = []): array
     {
-        return $this->get('tv/' . $tvId . '/credits', $parameters);
+        return $this->get(3, 'tv/' . $tvId . '/credits', $parameters);
     }
 
     /**
@@ -110,7 +112,7 @@ class TV extends Api
 
     public function getEpisodeGroups(int $tvId, array $parameters = []): array
     {
-        return $this->get('tv/' . $tvId . '/episode_groups', $parameters);
+        return $this->get(3, 'tv/' . $tvId . '/episode_groups', $parameters);
     }
 
     /**
@@ -123,7 +125,7 @@ class TV extends Api
 
     public function getExternalIds(int $tvId, array $parameters = []): array
     {
-        return $this->get('tv/' . $tvId . '/external_ids', $parameters);
+        return $this->get(3, 'tv/' . $tvId . '/external_ids', $parameters);
     }
 
     /**
@@ -136,7 +138,7 @@ class TV extends Api
 
     public function getImages(int $tvId, array $parameters = []): array
     {
-        return $this->get('tv/' . $tvId . '/images', $parameters);
+        return $this->get(3, 'tv/' . $tvId . '/images', $parameters);
     }
 
     /**
@@ -148,7 +150,7 @@ class TV extends Api
 
     public function getKeywords(int $tvId): array
     {
-        return $this->get('tv/' . $tvId . '/keywords');
+        return $this->get(3, 'tv/' . $tvId . '/keywords');
     }
 
     /**
@@ -161,7 +163,7 @@ class TV extends Api
 
     public function getRecommendations(int $tvId, array $parameters = []): array
     {
-        return $this->get('tv/' . $tvId . '/recommendations', $parameters);
+        return $this->get(3, 'tv/' . $tvId . '/recommendations', $parameters);
     }
 
     /**
@@ -174,7 +176,7 @@ class TV extends Api
 
     public function getReviews(int $tvId, array $parameters = []): array
     {
-        return $this->get('tv/' . $tvId . '/reviews', $parameters);
+        return $this->get(3, 'tv/' . $tvId . '/reviews', $parameters);
     }
 
     /**
@@ -187,7 +189,7 @@ class TV extends Api
 
     public function getScreenedTheatrically(int $tvId): array
     {
-        return $this->get('tv/' . $tvId . '/screened_theatrically');
+        return $this->get(3, 'tv/' . $tvId . '/screened_theatrically');
     }
 
     /**
@@ -200,7 +202,7 @@ class TV extends Api
 
     public function getSimilarTVShows(int $tvId, array $parameters = []): array
     {
-        return $this->get('tv/' . $tvId . '/similar', $parameters);
+        return $this->get(3, 'tv/' . $tvId . '/similar', $parameters);
     }
 
     /**
@@ -212,7 +214,7 @@ class TV extends Api
 
     public function getTranslations(int $tvId): array
     {
-        return $this->get('tv/' . $tvId . '/translations');
+        return $this->get(3, 'tv/' . $tvId . '/translations');
     }
 
     /**
@@ -225,7 +227,7 @@ class TV extends Api
 
     public function getVideos(int $tvId, array $parameters = []): array
     {
-        return $this->get('tv/' . $tvId . '/videos', $parameters);
+        return $this->get(3, 'tv/' . $tvId . '/videos', $parameters);
     }
 
     /**
@@ -237,7 +239,7 @@ class TV extends Api
 
     public function getWatchProviders(int $tvId): array
     {
-        return $this->get('tv/' . $tvId . '/watch/providers');
+        return $this->get(3, 'tv/' . $tvId . '/watch/providers');
     }
 
     /**
@@ -251,7 +253,7 @@ class TV extends Api
 
     public function rateTVShow(int $tvId, float $rating, array $parameters): array
     {
-        return $this->post('tv/' . $tvId . '/rating', ['value' => $rating], $parameters);
+        return $this->post(3, 'tv/' . $tvId . '/rating', ['value' => $rating], $parameters);
     }
 
     /**
@@ -264,7 +266,7 @@ class TV extends Api
 
     public function deleteRating(int $tvId, array $parameters = []): array
     {
-        return $this->delete('tv/' . $tvId . '/rating', null, $parameters);
+        return $this->delete(3, 'tv/' . $tvId . '/rating', null, $parameters);
     }
 
     /**
@@ -277,7 +279,7 @@ class TV extends Api
 
     public function getLatest(int $tvId, array $parameters = []): array
     {
-        return $this->get('tv/' . $tvId . '/latest', $parameters);
+        return $this->get(3, 'tv/' . $tvId . '/latest', $parameters);
     }
 
     /**
@@ -290,7 +292,7 @@ class TV extends Api
 
     public function getTVAiringToday(array $parameters = []): array
     {
-        return $this->get('tv/airing_today', $parameters);
+        return $this->get(3, 'tv/airing_today', $parameters);
     }
 
     /**
@@ -302,7 +304,7 @@ class TV extends Api
 
     public function getTVOnTheAir(array $parameters = []): array
     {
-        return $this->get('tv/on_the_air', $parameters);
+        return $this->get(3, 'tv/on_the_air', $parameters);
     }
 
     /**
@@ -315,7 +317,7 @@ class TV extends Api
 
     public function getPopular(array $parameters = []): array
     {
-        return $this->get('tv/popular', $parameters);
+        return $this->get(3, 'tv/popular', $parameters);
     }
 
     /**
@@ -328,7 +330,7 @@ class TV extends Api
 
     public function getTopRated(array $parameters = []): array
     {
-        return $this->get('tv/top_rated', $parameters);
+        return $this->get(3, 'tv/top_rated', $parameters);
     }
 
 }

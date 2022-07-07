@@ -1,6 +1,8 @@
 <?php
 
-namespace Kozennnn\TmdbAPI\Api;
+namespace Kozennnn\TmdbAPI\Api\v3;
+
+use Kozennnn\TmdbAPI\Api\Api;
 
 class Keywords extends Api
 {
@@ -12,7 +14,7 @@ class Keywords extends Api
 
     public function getKeyword(int $keywordId): array
     {
-        return $this->get('keyword/' . $keywordId);
+        return $this->get(3, 'keyword/' . $keywordId);
     }
 
     /**
@@ -25,7 +27,7 @@ class Keywords extends Api
 
     public function getMovies(int $keywordId, array $parameters = []): array
     {
-        return $this->get('keyword/' . $keywordId . '/movies', $parameters);
+        return $this->get(3, 'keyword/' . $keywordId . '/movies', $parameters);
     }
 
 }

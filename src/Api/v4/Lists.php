@@ -1,6 +1,8 @@
 <?php
 
-namespace Kozennnn\TmdbAPI\Api;
+namespace Kozennnn\TmdbAPI\Api\v4;
+
+use Kozennnn\TmdbAPI\Api\Api;
 
 class Lists extends Api
 {
@@ -15,7 +17,7 @@ class Lists extends Api
 
     public function getList(int $listId, array $parameters = []): array
     {
-        return $this->get('list/' . $listId, $parameters);
+        return $this->get(4, 'list/' . $listId, $parameters);
     }
 
     /**
@@ -45,58 +47,53 @@ class Lists extends Api
     }
 
     /**
-     * Add a movie to a list.
+     * Add an item to a list.
      *
      * @param int $listId
-     * @param int $sessionId
-     * @param int $mediaId
+     * @param array $items
      * @return array
      */
 
-    public function addMovie(int $listId, int $sessionId, int $mediaId): array
+    public function addItems(int $listId, array $items): array
     {
-        return $this->post('list/' . $listId . '/add_item', ['media_id' => $mediaId], ['session_id' => $sessionId]);
+        return $this->post('list/' . $listId . '/items', ['items' => $items]);
     }
 
     /**
-     * Remove a movie from a list.
+     * Remove an item from a list.
      *
      * @param int $listId
-     * @param int $sessionId
-     * @param int $mediaId
+     * @param array $items
      * @return array
      */
 
-    public function removeMovie(int $listId, int $sessionId, int $mediaId): array
+    public function removeItem(int $listId, array $items): array
     {
-        return $this->post('list/' . $listId . '/remove_item', ['media_id' => $mediaId], ['session_id' => $sessionId]);
+        return $this->delete('list/' . $listId . '/items', ['items' => $items]);
     }
 
     /**
      * Clear all of the items from a list.
      *
      * @param int $listId
-     * @param int $sessionId
-     * @param boolean $confirm
      * @return array
      */
 
-    public function clearList(int $listId, int $sessionId, boolean $confirm): array
+    public function clearList(int $listId): array
     {
-        return $this->post('list/' . $listId . '/clear', null, ['session_id' => $sessionId, 'confirm' => $confirm]);
+        return $this->get('list/' . $listId . '/clear');
     }
 
     /**
      * Delete a list.
      *
      * @param int $listId
-     * @param int $sessionId
      * @return array
      */
 
-    public function deleteList(int $listId, int $sessionId): array
+    public function deleteList(int $listId): array
     {
-        return $this->delete('list/' . $listId, null, ['session_id' => $sessionId]);
+        return $this->delete('list/' . $listId);
     }
 
 }

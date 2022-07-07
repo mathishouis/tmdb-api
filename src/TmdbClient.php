@@ -2,26 +2,26 @@
 
 namespace Kozennnn\TmdbAPI;
 
-use Kozennnn\TmdbAPI\Api\Discover;
-use Kozennnn\TmdbAPI\Api\Genres;
-use Kozennnn\TmdbAPI\Api\Keywords;
-use Kozennnn\TmdbAPI\Api\Lists;
-use Kozennnn\TmdbAPI\Api\Movies;
-use Kozennnn\TmdbAPI\Api\Networks;
-use Kozennnn\TmdbAPI\Api\People;
-use Kozennnn\TmdbAPI\Api\Reviews;
-use Kozennnn\TmdbAPI\Api\Search;
-use Kozennnn\TmdbAPI\Api\Trending;
-use Kozennnn\TmdbAPI\Api\TV;
-use Kozennnn\TmdbAPI\Api\TVEpisodeGroups;
-use Kozennnn\TmdbAPI\Api\TVEpisodes;
-use Kozennnn\TmdbAPI\Api\TVSeasons;
-use Kozennnn\TmdbAPI\Api\WatchProviders;
+use Kozennnn\TmdbAPI\Api\v3\Discover;
+use Kozennnn\TmdbAPI\Api\v3\Genres;
+use Kozennnn\TmdbAPI\Api\v3\Keywords;
+use Kozennnn\TmdbAPI\Api\v3\Lists;
+use Kozennnn\TmdbAPI\Api\v3\Movies;
+use Kozennnn\TmdbAPI\Api\v3\Networks;
+use Kozennnn\TmdbAPI\Api\v3\People;
+use Kozennnn\TmdbAPI\Api\v3\Reviews;
+use Kozennnn\TmdbAPI\Api\v3\Search;
+use Kozennnn\TmdbAPI\Api\v3\Trending;
+use Kozennnn\TmdbAPI\Api\v3\TV;
+use Kozennnn\TmdbAPI\Api\v3\TVEpisodeGroups;
+use Kozennnn\TmdbAPI\Api\v3\TVEpisodes;
+use Kozennnn\TmdbAPI\Api\v3\TVSeasons;
+use Kozennnn\TmdbAPI\Api\v3\WatchProviders;
+use Kozennnn\TmdbAPI\Methods\v3\ApiMethods;
 
 class TmdbClient {
 
-    public const API_VERSION = '3';
-    public const API_URL = '://api.themoviedb.org/' . self::API_VERSION . '/';
+    public const API_URL = '://api.themoviedb.org/';
     public const SCHEME_INSECURE = 'http';
     public const SCHEME_SECURE = 'https';
 
@@ -32,6 +32,7 @@ class TmdbClient {
      */
 
     private $apiKey;
+    private $secure;
 
     /**
      * TMDBClient constructor.
@@ -44,6 +45,7 @@ class TmdbClient {
 
         $this->apiKey = $apiKey;
         $this->secure = $secure;
+
     }
 
     /**
@@ -61,64 +63,13 @@ class TmdbClient {
         return $this->secure;
     }
 
-    public function Movies(): Movies {
-        return new Movies($this);
+    public function v3(): ApiMethods {
+        return new ApiMethods($this);
     }
 
-    public function Networks(): Networks {
-        return new Networks($this);
-    }
-
-    public function Trending(): Trending {
-        return new Trending($this);
-    }
-
-    public function People(): People {
-        return new People($this);
-    }
-
-    public function Reviews(): Reviews {
-        return new Reviews($this);
-    }
-
-    public function Search(): Search {
-        return new Search($this);
-    }
-
-    public function TV(): TV {
-        return new TV($this);
-    }
-
-    public function TVSeasons(): TVSeasons {
-        return new TVSeasons($this);
-    }
-
-    public function TVEpisodes(): TVEpisodes {
-        return new TVEpisodes($this);
-    }
-
-    public function TVEpisodeGroup(): TVEpisodeGroups {
-        return new TVEpisodeGroups($this);
-    }
-
-    public function WatchProviders(): WatchProviders {
-        return new WatchProviders($this);
-    }
-
-    public function Lists(): Lists {
-        return new Lists($this);
-    }
-
-    public function Keywords(): Keywords {
-        return new Keywords($this);
-    }
-
-    public function Genres(): Genres {
-        return new Genres($this);
-    }
-
-    public function Discover(): Discover {
-        return new Discover($this);
+    public function v4(): Methods\v4\ApiMethods
+    {
+        return new \Kozennnn\TmdbAPI\Methods\v4\ApiMethods($this);
     }
 
 }

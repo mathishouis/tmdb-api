@@ -1,6 +1,8 @@
 <?php
 
-namespace Kozennnn\TmdbAPI\Api;
+namespace Kozennnn\TmdbAPI\Api\v3;
+
+use Kozennnn\TmdbAPI\Api\Api;
 
 class Discover extends Api
 {
@@ -14,7 +16,7 @@ class Discover extends Api
 
     public function movieDiscover(array $parameters = []): array
     {
-        return $this->get('discover/movie', $parameters);
+        return $this->get(3, 'discover/movie', $parameters);
     }
 
     /**
@@ -26,7 +28,7 @@ class Discover extends Api
 
     public function tvDiscover(array $parameters = []): array
     {
-        return $this->get('discover/tv', $parameters);
+        return $this->get(3, 'discover/tv', $parameters);
     }
 
 

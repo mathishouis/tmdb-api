@@ -1,6 +1,8 @@
 <?php
 
-namespace Kozennnn\TmdbAPI\Api;
+namespace Kozennnn\TmdbAPI\Api\v3;
+
+use Kozennnn\TmdbAPI\Api\Api;
 
 class Genres extends Api
 {
@@ -13,7 +15,7 @@ class Genres extends Api
 
     public function getMovieList(array $parameters): array
     {
-        return $this->get('genre/movie/list', $parameters);
+        return $this->get(3, 'genre/movie/list', $parameters);
     }
 
     /**
@@ -25,7 +27,7 @@ class Genres extends Api
 
     public function getTVList(array $parameters): array
     {
-        return $this->get('genre/tv/list', $parameters);
+        return $this->get(3, 'genre/tv/list', $parameters);
     }
 
 }

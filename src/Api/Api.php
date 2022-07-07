@@ -24,14 +24,15 @@ abstract class Api
     /**
      * Get method
      *
+     * @param int $apiVersion
      * @param string $path
      * @param array $parameters
      * @return array
      */
 
-    public function get(string $path, array $parameters = []): array {
+    public function get(int $apiVersion, string $path, array $parameters = []): array {
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $this->client->isSecure() ? TmdbClient::SCHEME_SECURE : TmdbClient::SCHEME_INSECURE . TmdbClient::API_URL . $path . "?api_key=" . $this->client->getApiKey() . "&" . http_build_query($parameters));
+        curl_setopt($ch, CURLOPT_URL, $this->client->isSecure() ? TmdbClient::SCHEME_SECURE : TmdbClient::SCHEME_INSECURE . TmdbClient::API_URL . $apiVersion . "/" . $path . "?api_key=" . $this->client->getApiKey() . "&" . http_build_query($parameters));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
         $data = curl_exec($ch);
@@ -43,9 +44,9 @@ abstract class Api
         return json_decode($data, true);
     }
 
-    public function post(string $path, array $content = null, array $parameters = []): array {
+    public function post(int $apiVersion, string $path, array $content = null, array $parameters = []): array {
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $this->client->isSecure() ? TmdbClient::SCHEME_SECURE : TmdbClient::SCHEME_INSECURE . TmdbClient::API_URL . $path . "?api_key=" . $this->client->getApiKey() . "&" . http_build_query($parameters));
+        curl_setopt($ch, CURLOPT_URL, $this->client->isSecure() ? TmdbClient::SCHEME_SECURE : TmdbClient::SCHEME_INSECURE . TmdbClient::API_URL . $apiVersion . "/" . $path . "?api_key=" . $this->client->getApiKey() . "&" . http_build_query($parameters));
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $content);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -54,9 +55,9 @@ abstract class Api
         return json_decode($data, true);
     }
 
-    public function delete(string $path, array $content = null, array $parameters = []): array {
+    public function delete(int $apiVersion, string $path, array $content = null, array $parameters = []): array {
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $this->client->isSecure() ? TmdbClient::SCHEME_SECURE : TmdbClient::SCHEME_INSECURE . TmdbClient::API_URL . $path . "?api_key=" . $this->client->getApiKey() . "&" . http_build_query($parameters));
+        curl_setopt($ch, CURLOPT_URL, $this->client->isSecure() ? TmdbClient::SCHEME_SECURE : TmdbClient::SCHEME_INSECURE . TmdbClient::API_URL . $apiVersion . "/" . $path . "?api_key=" . $this->client->getApiKey() . "&" . http_build_query($parameters));
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
         curl_setopt($ch, CURLOPT_POSTFIELDS, $content);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

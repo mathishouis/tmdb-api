@@ -1,6 +1,8 @@
 <?php
 
-namespace Kozennnn\TmdbAPI\Api;
+namespace Kozennnn\TmdbAPI\Api\v3;
+
+use Kozennnn\TmdbAPI\Api\Api;
 
 class Search extends Api
 {
@@ -15,7 +17,7 @@ class Search extends Api
 
     public function searchCompanies(string $query, array $parameters = []): array
     {
-        return $this->get('search/company', array_merge($parameters, ['query' => $query]));
+        return $this->get(3, 'search/company', array_merge($parameters, ['query' => $query]));
     }
 
     /**
@@ -28,7 +30,7 @@ class Search extends Api
 
     public function searchCollections(string $query, array $parameters = []): array
     {
-        return $this->get('search/collection', array_merge($parameters, ['query' => $query]));
+        return $this->get(3, 'search/collection', array_merge($parameters, ['query' => $query]));
     }
 
     /**
@@ -41,7 +43,7 @@ class Search extends Api
 
     public function searchKeywords(string $query, array $parameters = []): array
     {
-        return $this->get('search/keyword', array_merge($parameters, ['query' => $query]));
+        return $this->get(3, 'search/keyword', array_merge($parameters, ['query' => $query]));
     }
 
     /**
@@ -54,7 +56,7 @@ class Search extends Api
 
     public function searchMovies(string $query, array $parameters = []): array
     {
-        return $this->get('search/movie', array_merge($parameters, ['query' => $query]));
+        return $this->get(3, 'search/movie', array_merge($parameters, ['query' => $query]));
     }
 
     /**
@@ -68,7 +70,7 @@ class Search extends Api
 
     public function multiSearch(string $query, array $parameters = []): array
     {
-        return $this->get('search/multi', array_merge($parameters, ['query' => $query]));
+        return $this->get(3, 'search/multi', array_merge($parameters, ['query' => $query]));
     }
 
     /**
@@ -81,7 +83,7 @@ class Search extends Api
 
     public function searchPeople(string $query, array $parameters = []): array
     {
-        return $this->get('search/person', array_merge($parameters, ['query' => $query]));
+        return $this->get(3, 'search/person', array_merge($parameters, ['query' => $query]));
     }
 
     /**
@@ -94,6 +96,6 @@ class Search extends Api
 
     public function searchTVShows(string $query, array $parameters = []): array
     {
-        return $this->get('search/tv', array_merge($parameters, ['query' => $query]));
+        return $this->get(3, 'search/tv', array_merge($parameters, ['query' => $query]));
     }
 }

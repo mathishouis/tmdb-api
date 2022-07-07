@@ -1,6 +1,8 @@
 <?php
 
-namespace Kozennnn\TmdbAPI\Api;
+namespace Kozennnn\TmdbAPI\Api\v3;
+
+use Kozennnn\TmdbAPI\Api\Api;
 
 class TVEpisodeGroups extends Api
 {
@@ -21,6 +23,6 @@ class TVEpisodeGroups extends Api
 
     public function getEpisodeGroup(int $episodeGroupId, array $parameters = []): array
     {
-        return $this->get('tv/episode_group/' . $episodeGroupId, $parameters);
+        return $this->get(3, 'tv/episode_group/' . $episodeGroupId, $parameters);
     }
 }

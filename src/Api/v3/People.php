@@ -1,6 +1,8 @@
 <?php
 
-namespace Kozennnn\TmdbAPI\Api;
+namespace Kozennnn\TmdbAPI\Api\v3;
+
+use Kozennnn\TmdbAPI\Api\Api;
 
 class People extends Api
 {
@@ -15,7 +17,7 @@ class People extends Api
 
     public function getPerson(int $personId, array $parameters = []): array
     {
-        return $this->get('person/' . $personId, $parameters);
+        return $this->get(3, 'person/' . $personId, $parameters);
     }
 
     /**
@@ -28,7 +30,7 @@ class People extends Api
 
     public function getChanges(int $personId, array $parameters = []): array
     {
-        return $this->get('person/' . $personId . '/changes', $parameters);
+        return $this->get(3, 'person/' . $personId . '/changes', $parameters);
     }
 
     /**
@@ -41,7 +43,7 @@ class People extends Api
 
     public function getMovieCredits(int $personId, array $parameters = []): array
     {
-        return $this->get('person/' . $personId . '/movie_credits', $parameters);
+        return $this->get(3, 'person/' . $personId . '/movie_credits', $parameters);
     }
 
     /**
@@ -54,7 +56,7 @@ class People extends Api
 
     public function getTVCredits(int $personId, array $parameters = []): array
     {
-        return $this->get('person/' . $personId . '/tv_credits', $parameters);
+        return $this->get(3, 'person/' . $personId . '/tv_credits', $parameters);
     }
 
     /**
@@ -67,7 +69,7 @@ class People extends Api
 
     public function getCombinedCredits(int $personId, array $parameters = []): array
     {
-        return $this->get('person/' . $personId . '/combined_credits', $parameters);
+        return $this->get(3, 'person/' . $personId . '/combined_credits', $parameters);
     }
 
     /**
@@ -80,7 +82,7 @@ class People extends Api
 
     public function getExternalsIds(int $personId, array $parameters = []): array
     {
-        return $this->get('person/' . $personId . '/external_ids', $parameters);
+        return $this->get(3, 'person/' . $personId . '/external_ids', $parameters);
     }
 
     /**
@@ -92,7 +94,7 @@ class People extends Api
 
     public function getImages(int $personId): array
     {
-        return $this->get('person/' . $personId . '/images');
+        return $this->get(3, 'person/' . $personId . '/images');
     }
 
     /**
@@ -105,7 +107,7 @@ class People extends Api
 
     public function getTaggedImages(int $personId, array $parameters = []): array
     {
-        return $this->get('person/' . $personId . '/tagged_images', $parameters);
+        return $this->get(3, 'person/' . $personId . '/tagged_images', $parameters);
     }
 
     /**
@@ -118,7 +120,7 @@ class People extends Api
 
     public function getTranslations(int $personId, array $parameters = []): array
     {
-        return $this->get('person/' . $personId . '/translations', $parameters);
+        return $this->get(3, 'person/' . $personId . '/translations', $parameters);
     }
 
     /**
@@ -131,7 +133,7 @@ class People extends Api
 
     public function getLatest(array $parameters = []): array
     {
-        return $this->get('person/latest', $parameters);
+        return $this->get(3, 'person/latest', $parameters);
     }
 
     /**
@@ -143,7 +145,7 @@ class People extends Api
 
     public function getPopular(array $parameters = []): array
     {
-        return $this->get('person/popular', $parameters);
+        return $this->get(3, 'person/popular', $parameters);
     }
 
 }

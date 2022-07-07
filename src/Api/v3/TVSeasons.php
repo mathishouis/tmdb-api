@@ -1,6 +1,8 @@
 <?php
 
-namespace Kozennnn\TmdbAPI\Api;
+namespace Kozennnn\TmdbAPI\Api\v3;
+
+use Kozennnn\TmdbAPI\Api\Api;
 
 class TVSeasons extends Api
 {
@@ -16,7 +18,7 @@ class TVSeasons extends Api
 
     public function getTVSeason(int $tvId, int $seasonNumber, array $parameters = []): array
     {
-        return $this->get('tv/' . $tvId . '/season/' . $seasonNumber, $parameters);
+        return $this->get(3, 'tv/' . $tvId . '/season/' . $seasonNumber, $parameters);
     }
 
     /**
@@ -30,7 +32,7 @@ class TVSeasons extends Api
 
     public function getAccountStates(int $tvId, int $seasonNumber, array $parameters = []): array
     {
-        return $this->get('tv/' . $tvId . '/season/' . $seasonNumber . '/account_states', $parameters);
+        return $this->get(3, 'tv/' . $tvId . '/season/' . $seasonNumber . '/account_states', $parameters);
     }
 
     /**
@@ -44,7 +46,7 @@ class TVSeasons extends Api
 
     public function getAggregateCredits(int $tvId, int $seasonNumber, array $parameters = []): array
     {
-        return $this->get('tv/' . $tvId . '/season/' . $seasonNumber . '/aggregate_credits', $parameters);
+        return $this->get(3, 'tv/' . $tvId . '/season/' . $seasonNumber . '/aggregate_credits', $parameters);
     }
 
     /**
@@ -57,7 +59,7 @@ class TVSeasons extends Api
 
     public function getChanges(int $seasonId, array $parameters = []): array
     {
-        return $this->get('tv/season/' . $seasonId . '/changes', $parameters);
+        return $this->get(3, 'tv/season/' . $seasonId . '/changes', $parameters);
     }
 
     /**
@@ -71,7 +73,7 @@ class TVSeasons extends Api
 
     public function getCredits(int $tvId, int $seasonNumber, array $parameters = []): array
     {
-        return $this->get('tv/' . $tvId . '/season/' . $seasonNumber . '/credits', $parameters);
+        return $this->get(3, 'tv/' . $tvId . '/season/' . $seasonNumber . '/credits', $parameters);
     }
 
     /**
@@ -85,7 +87,7 @@ class TVSeasons extends Api
 
     public function getExternalIds(int $tvId, int $seasonNumber, array $parameters = []): array
     {
-        return $this->get('tv/' . $tvId . '/season/' . $seasonNumber . '/external_ids', $parameters);
+        return $this->get(3, 'tv/' . $tvId . '/season/' . $seasonNumber . '/external_ids', $parameters);
     }
 
     /**
@@ -99,7 +101,7 @@ class TVSeasons extends Api
 
     public function getImages(int $tvId, int $seasonNumber, array $parameters = []): array
     {
-        return $this->get('tv/' . $tvId . '/season/' . $seasonNumber . '/images', $parameters);
+        return $this->get(3, 'tv/' . $tvId . '/season/' . $seasonNumber . '/images', $parameters);
     }
 
     /**
@@ -113,7 +115,7 @@ class TVSeasons extends Api
 
     public function getTranslations(int $tvId, int $seasonNumber, array $parameters = []): array
     {
-        return $this->get('tv/' . $tvId . '/season/' . $seasonNumber . '/translations', $parameters);
+        return $this->get(3, 'tv/' . $tvId . '/season/' . $seasonNumber . '/translations', $parameters);
     }
 
     /**
@@ -127,7 +129,7 @@ class TVSeasons extends Api
 
     public function getVideos(int $tvId, int $seasonNumber, array $parameters = []): array
     {
-        return $this->get('tv/' . $tvId . '/season/' . $seasonNumber . '/videos', $parameters);
+        return $this->get(3, 'tv/' . $tvId . '/season/' . $seasonNumber . '/videos', $parameters);
     }
 
 }

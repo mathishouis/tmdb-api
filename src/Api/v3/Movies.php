@@ -1,6 +1,8 @@
 <?php
 
-namespace Kozennnn\TmdbAPI\Api;
+namespace Kozennnn\TmdbAPI\Api\v3;
+
+use Kozennnn\TmdbAPI\Api\Api;
 
 class Movies extends Api
 {
@@ -15,7 +17,7 @@ class Movies extends Api
 
     public function getMovie(int $movieId, array $parameters = []): array
     {
-        return $this->get('movie/' . $movieId, $parameters);
+        return $this->get(3, 'movie/' . $movieId, $parameters);
     }
 
     /**
@@ -32,7 +34,7 @@ class Movies extends Api
 
     public function getAccountStates(int $movieId, string $sessionId, array $parameters = []): array
     {
-        return $this->get('movie/' . $movieId . '/account_states', array_merge($parameters, ['session_id' => $sessionId]));
+        return $this->get(3, 'movie/' . $movieId . '/account_states', array_merge($parameters, ['session_id' => $sessionId]));
     }
 
     /**
@@ -45,7 +47,7 @@ class Movies extends Api
 
     public function getAlternativeTitles(int $movieId, array $parameters = []): array
     {
-        return $this->get('movie/' . $movieId . '/alternative_titles', $parameters);
+        return $this->get(3, 'movie/' . $movieId . '/alternative_titles', $parameters);
     }
 
     /**
@@ -58,7 +60,7 @@ class Movies extends Api
 
     public function getChanges(int $movieId, array $parameters = []): array
     {
-        return $this->get('movie/' . $movieId . '/changes', $parameters);
+        return $this->get(3, 'movie/' . $movieId . '/changes', $parameters);
     }
 
     /**
@@ -71,7 +73,7 @@ class Movies extends Api
 
     public function getCredits(int $movieId, array $parameters = []): array
     {
-        return $this->get('movie/' . $movieId . '/credits', $parameters);
+        return $this->get(3, 'movie/' . $movieId . '/credits', $parameters);
     }
 
     /**
@@ -84,7 +86,7 @@ class Movies extends Api
 
     public function getExternalIds(int $movieId, array $parameters = []): array
     {
-        return $this->get('movie/' . $movieId . '/external_ids', $parameters);
+        return $this->get(3, 'movie/' . $movieId . '/external_ids', $parameters);
     }
 
     /**
@@ -97,7 +99,7 @@ class Movies extends Api
 
     public function getImages(int $movieId, array $parameters = []): array
     {
-        return $this->get('movie/' . $movieId . '/images', $parameters);
+        return $this->get(3, 'movie/' . $movieId . '/images', $parameters);
     }
 
     /**
@@ -109,7 +111,7 @@ class Movies extends Api
 
     public function getKeywords(int $movieId): array
     {
-        return $this->get('movie/' . $movieId . '/keywords');
+        return $this->get(3, 'movie/' . $movieId . '/keywords');
     }
 
     /**
@@ -122,7 +124,7 @@ class Movies extends Api
 
     public function getLists(int $movieId, array $parameters = []): array
     {
-        return $this->get('movie/' . $movieId . '/lists', $parameters);
+        return $this->get(3, 'movie/' . $movieId . '/lists', $parameters);
     }
 
     /**
@@ -135,7 +137,7 @@ class Movies extends Api
 
     public function getRecommendations(int $movieId, array $parameters = []): array
     {
-        return $this->get('movie/' . $movieId . '/recommendations', $parameters);
+        return $this->get(3, 'movie/' . $movieId . '/recommendations', $parameters);
     }
 
     /**
@@ -147,7 +149,7 @@ class Movies extends Api
 
     public function getReleaseDates(int $movieId): array
     {
-        return $this->get('movie/' . $movieId . '/release_dates');
+        return $this->get(3, 'movie/' . $movieId . '/release_dates');
     }
 
     /**
@@ -160,7 +162,7 @@ class Movies extends Api
 
     public function getReviews(int $movieId, array $parameters = []): array
     {
-        return $this->get('movie/' . $movieId . '/reviews', $parameters);
+        return $this->get(3, 'movie/' . $movieId . '/reviews', $parameters);
     }
 
     /**
@@ -173,7 +175,7 @@ class Movies extends Api
 
     public function getSimilarMovies(int $movieId, array $parameters = []): array
     {
-        return $this->get('movie/' . $movieId . '/similar', $parameters);
+        return $this->get(3, 'movie/' . $movieId . '/similar', $parameters);
     }
 
     /**
@@ -185,7 +187,7 @@ class Movies extends Api
 
     public function getTranslations(int $movieId): array
     {
-        return $this->get('movie/' . $movieId . '/translations');
+        return $this->get(3, 'movie/' . $movieId . '/translations');
     }
 
     /**
@@ -198,7 +200,7 @@ class Movies extends Api
 
     public function getVideos(int $movieId, array $parameters = []): array
     {
-        return $this->get('movie/' . $movieId . '/videos', $parameters);
+        return $this->get(3, 'movie/' . $movieId . '/videos', $parameters);
     }
 
     /**
@@ -210,7 +212,7 @@ class Movies extends Api
 
     public function getWatchProviders(int $movieId): array
     {
-        return $this->get('movie/' . $movieId . '/watch/providers');
+        return $this->get(3, 'movie/' . $movieId . '/watch/providers');
     }
 
     /**
@@ -224,7 +226,7 @@ class Movies extends Api
 
     public function rateMovie(int $movieId, float $rating, array $parameters): array
     {
-        return $this->post('movie/' . $movieId . '/rating', ['value' => $rating], $parameters);
+        return $this->post(3, 'movie/' . $movieId . '/rating', ['value' => $rating], $parameters);
     }
 
     /**
@@ -237,7 +239,7 @@ class Movies extends Api
 
     public function deleteRating(int $movieId, array $parameters = []): array
     {
-        return $this->delete('movie/' . $movieId . '/rating', null, $parameters);
+        return $this->delete(3, 'movie/' . $movieId . '/rating', null, $parameters);
     }
 
     /**
@@ -250,7 +252,7 @@ class Movies extends Api
 
     public function getLatest(int $movieId, array $parameters = []): array
     {
-        return $this->get('movie/' . $movieId . '/latest', $parameters);
+        return $this->get(3, 'movie/' . $movieId . '/latest', $parameters);
     }
 
     /**
@@ -263,7 +265,7 @@ class Movies extends Api
 
     public function getNowPlaying(array $parameters = []): array
     {
-        return $this->get('movie/now_playing', $parameters);
+        return $this->get(3, 'movie/now_playing', $parameters);
     }
 
     /**
@@ -276,7 +278,7 @@ class Movies extends Api
 
     public function getPopular(array $parameters = []): array
     {
-        return $this->get('movie/popular', $parameters);
+        return $this->get(3, 'movie/popular', $parameters);
     }
 
     /**
@@ -289,7 +291,7 @@ class Movies extends Api
 
     public function getTopRated(array $parameters = []): array
     {
-        return $this->get('movie/top_rated', $parameters);
+        return $this->get(3, 'movie/top_rated', $parameters);
     }
 
     /**
@@ -302,7 +304,7 @@ class Movies extends Api
 
     public function getUpcoming(array $parameters = []): array
     {
-        return $this->get('movie/upcoming', $parameters);
+        return $this->get(3, 'movie/upcoming', $parameters);
     }
 
 }

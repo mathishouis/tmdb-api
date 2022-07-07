@@ -1,6 +1,8 @@
 <?php
 
-namespace Kozennnn\TmdbAPI\Api;
+namespace Kozennnn\TmdbAPI\Api\v3;
+
+use Kozennnn\TmdbAPI\Api\Api;
 
 class WatchProviders extends Api
 {
@@ -15,7 +17,7 @@ class WatchProviders extends Api
 
     public function getAvailableRegions(int $episodeGroupId, array $parameters = []): array
     {
-        return $this->get('watch/providers/regions', $parameters);
+        return $this->get(3, 'watch/providers/regions', $parameters);
     }
 
     /**
@@ -28,7 +30,7 @@ class WatchProviders extends Api
 
     public function getMovieProviders(int $episodeGroupId, array $parameters = []): array
     {
-        return $this->get('watch/providers/movie', $parameters);
+        return $this->get(3, 'watch/providers/movie', $parameters);
     }
 
     /**
@@ -41,7 +43,7 @@ class WatchProviders extends Api
 
     public function getTVProviders(int $episodeGroupId, array $parameters = []): array
     {
-        return $this->get('watch/providers/tv', $parameters);
+        return $this->get(3, 'watch/providers/tv', $parameters);
     }
 
 }

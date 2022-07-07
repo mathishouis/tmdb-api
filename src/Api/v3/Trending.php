@@ -1,6 +1,8 @@
 <?php
 
-namespace Kozennnn\TmdbAPI\Api;
+namespace Kozennnn\TmdbAPI\Api\v3;
+
+use Kozennnn\TmdbAPI\Api\Api;
 
 class Trending extends Api
 {
@@ -17,7 +19,7 @@ class Trending extends Api
 
     public function getTrending(string $mediaType, string $timeWindow): array
     {
-        return $this->get('trending/' . $mediaType . '/' . $timeWindow);
+        return $this->get(3, 'trending/' . $mediaType . '/' . $timeWindow);
     }
 
 }

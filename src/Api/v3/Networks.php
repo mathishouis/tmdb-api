@@ -1,6 +1,8 @@
 <?php
 
-namespace Kozennnn\TmdbAPI\Api;
+namespace Kozennnn\TmdbAPI\Api\v3;
+
+use Kozennnn\TmdbAPI\Api\Api;
 
 class Networks extends Api
 {
@@ -14,7 +16,7 @@ class Networks extends Api
 
     public function getNetwork(int $networkId): array
     {
-        return $this->get('network/' . $networkId);
+        return $this->get(3, 'network/' . $networkId);
     }
 
     /**
@@ -26,7 +28,7 @@ class Networks extends Api
 
     public function getAlternativeNames(int $networkId): array
     {
-        return $this->get('network/' . $networkId . '/alternative_names');
+        return $this->get(3, 'network/' . $networkId . '/alternative_names');
     }
 
     /**
@@ -38,7 +40,7 @@ class Networks extends Api
 
     public function getImages(int $networkId): array
     {
-        return $this->get('network/' . $networkId . '/images');
+        return $this->get(3, 'network/' . $networkId . '/images');
     }
 
 }
