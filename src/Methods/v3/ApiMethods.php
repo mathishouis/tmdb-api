@@ -4,6 +4,7 @@
 namespace Kozennnn\TmdbAPI\Methods\v3;
 
 
+use Kozennnn\TmdbAPI\Api\v3\Collections;
 use Kozennnn\TmdbAPI\Api\v3\Discover;
 use Kozennnn\TmdbAPI\Api\v3\Genres;
 use Kozennnn\TmdbAPI\Api\v3\Keywords;
@@ -88,5 +89,9 @@ class ApiMethods
 
     public function Discover(): Discover {
         return new Discover($this->client);
+    }
+
+    public function Collections(): Collections {
+        return new Collections($this->client);
     }
 }
