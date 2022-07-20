@@ -28,9 +28,9 @@ class Lists extends Api
      * @return array
      */
 
-    public function checkItemStatus(int $listId, int $movieId): array
+    public function checkItemStatus(int $listId, int $mediaId, string $mediaType): array
     {
-        return $this->get('list/' . $listId . '/item_status', ['movie_id' => $movieId]);
+        return $this->get(4, 'list/' . $listId . '/item_status', ['media_id' => $mediaId, 'media_type' => $mediaType]);
     }
 
     /**
@@ -43,7 +43,7 @@ class Lists extends Api
 
     public function createList(int $sessionId, array $content): array
     {
-        return $this->post('list', $content, ['session_id' => $sessionId]);
+        return $this->post(4, 'list', $content, ['session_id' => $sessionId]);
     }
 
     /**
@@ -56,7 +56,7 @@ class Lists extends Api
 
     public function addItems(int $listId, array $items): array
     {
-        return $this->post('list/' . $listId . '/items', ['items' => $items]);
+        return $this->post(4,'list/' . $listId . '/items', ['items' => $items]);
     }
 
     /**
@@ -69,7 +69,7 @@ class Lists extends Api
 
     public function removeItem(int $listId, array $items): array
     {
-        return $this->delete('list/' . $listId . '/items', ['items' => $items]);
+        return $this->delete(4,'list/' . $listId . '/items', ['items' => $items]);
     }
 
     /**
@@ -81,7 +81,7 @@ class Lists extends Api
 
     public function clearList(int $listId): array
     {
-        return $this->get('list/' . $listId . '/clear');
+        return $this->get(4,'list/' . $listId . '/clear');
     }
 
     /**
@@ -93,7 +93,7 @@ class Lists extends Api
 
     public function deleteList(int $listId): array
     {
-        return $this->delete('list/' . $listId);
+        return $this->delete(4,'list/' . $listId);
     }
 
 }
